@@ -18,3 +18,6 @@ This project is the front-end entry point for the charity application
 7) Add the following lines to package.json:
 	```"homepage": "https://{yourgithubaccount}.github.io/lip-in-org"```
 	```"scripts" : { "predeploy": "yarn build", "deploy": "gh-pages -d build"}```
+8) Run ```yarn deploy``` and set the Github Pages branch to gh-pages in the settings.
+9) Add SASS to the project by running:
+	```yarn add node-sass```
