@@ -21,3 +21,5 @@ This project is the front-end entry point for the charity application
 8) Run ```yarn deploy``` and set the Github Pages branch to gh-pages in the settings.
 9) Add SASS to the project by running:
 	```yarn add node-sass```
+10) Add routing to the project by running:
+	```yarn add react-router-dom```
