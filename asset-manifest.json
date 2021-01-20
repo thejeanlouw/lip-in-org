@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/lip-in-org/static/css/main.d334b0cf.chunk.css",
-    "main.js": "/lip-in-org/static/js/main.2e5aa671.chunk.js",
-    "main.js.map": "/lip-in-org/static/js/main.2e5aa671.chunk.js.map",
+    "main.js": "/lip-in-org/static/js/main.e21ad87c.chunk.js",
+    "main.js.map": "/lip-in-org/static/js/main.e21ad87c.chunk.js.map",
     "runtime-main.js": "/lip-in-org/static/js/runtime-main.8c7a8f14.js",
     "runtime-main.js.map": "/lip-in-org/static/js/runtime-main.8c7a8f14.js.map",
-    "static/js/2.5455d224.chunk.js": "/lip-in-org/static/js/2.5455d224.chunk.js",
-    "static/js/2.5455d224.chunk.js.map": "/lip-in-org/static/js/2.5455d224.chunk.js.map",
+    "static/js/2.2d716ab7.chunk.js": "/lip-in-org/static/js/2.2d716ab7.chunk.js",
+    "static/js/2.2d716ab7.chunk.js.map": "/lip-in-org/static/js/2.2d716ab7.chunk.js.map",
     "static/js/3.ebbb75ac.chunk.js": "/lip-in-org/static/js/3.ebbb75ac.chunk.js",
     "static/js/3.ebbb75ac.chunk.js.map": "/lip-in-org/static/js/3.ebbb75ac.chunk.js.map",
     "index.html": "/lip-in-org/index.html",
     "static/css/main.d334b0cf.chunk.css.map": "/lip-in-org/static/css/main.d334b0cf.chunk.css.map",
-    "static/js/2.5455d224.chunk.js.LICENSE.txt": "/lip-in-org/static/js/2.5455d224.chunk.js.LICENSE.txt"
+    "static/js/2.2d716ab7.chunk.js.LICENSE.txt": "/lip-in-org/static/js/2.2d716ab7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8c7a8f14.js",
-    "static/js/2.5455d224.chunk.js",
+    "static/js/2.2d716ab7.chunk.js",
     "static/css/main.d334b0cf.chunk.css",
-    "static/js/main.2e5aa671.chunk.js"
+    "static/js/main.e21ad87c.chunk.js"
   ]
 }
