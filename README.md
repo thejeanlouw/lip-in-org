@@ -23,3 +23,5 @@ This project is the front-end entry point for the charity application
 	```yarn add node-sass```
 10) Add routing to the project by running:
 	```yarn add react-router-dom```
+10) Add firebase to the project by running:
+	```yarn add firebase```
