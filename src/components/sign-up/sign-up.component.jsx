@@ -19,11 +19,53 @@ export default class Signup extends React.Component {
         }
     }
 
+    handleSubmission = event => {
+        event.preventDefault();
+    }
+
+    handleChange = event =>{
+        this.setState({[event.target.name]: event.target.value}, ()=>console.log(this.state));
+    }
+
     render() {
+        const {displayName, email, password, confirmPassword} = this.state;
         return (
             <div className='sign-up'>
                 <h2>I do not have an account</h2>
-                <span></span>
+                <span>Sign up with your email and password</span>
+                <form className='sign-up-form' onSubmit={this.handleSubmission}>
+                    <FormInput
+                        type='text'
+                        name='displayName'
+                        value={displayName}
+                        onChange={this.handleChange}
+                        label='Display Name' 
+                        required/>
+                    <FormInput
+                        type='email'
+                        name='email'
+                        value={email}
+                        onChange={this.handleChange}
+                        label='Email' 
+                        required/>
+                    <FormInput
+                        type='password'
+                        name='password'
+                        value={password}
+                        onChange={this.handleChange}
+                        label='Password' 
+                        required/>
+                    <FormInput
+                        type='password'
+                        name='confirmPassword'
+                        value={confirmPassword}
+                        onChange={this.handleChange}
+                        label='Confitm Password' 
+                        required/>
+                    <CustomButton
+                        type='submit'>SIGN UP</CustomButton>
+                        
+                </form>
             </div>
         )
     }
