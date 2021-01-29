@@ -19,12 +19,32 @@ export default class Signup extends React.Component {
         }
     }
 
-    handleSubmission = event => {
+    handleSubmission = async event => {
         event.preventDefault();
+
+        const {displayName, email, password, confirmPassword} = this.state;
+        if(password!==confirmPassword){
+            alert('Passwords don\'t match');
+            return;
+        }
+        debugger;
+        try{
+            const {user} = await auth.createUserWithEmailAndPassword(email, password);
+            await createUserProfileDocument(user, {displayName});
+            this.setState({
+                displayName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            })
+        } catch (error){
+            console.error(error);
+        }
+
     }
 
-    handleChange = event =>{
-        this.setState({[event.target.name]: event.target.value}, ()=>console.log(this.state));
+    handleChange = async event =>{
+        this.setState({[event.target.name]: event.target.value});
     }
 
     render() {
