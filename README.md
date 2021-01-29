@@ -20,8 +20,11 @@ This project is the front-end entry point for the charity application
 	```"scripts" : { "predeploy": "yarn build", "deploy": "gh-pages -d build"}```
 8) Run ```yarn deploy``` and set the Github Pages branch to gh-pages in the settings.
 9) Add SASS to the project by running:
-	```yarn add node-sass```
+	```yarn add node-sass@4.14.1```
 10) Add routing to the project by running:
 	```yarn add react-router-dom```
 10) Add firebase to the project by running:
 	```yarn add firebase```
+11) Add redux and logging to the project by running:
+	```yarn add redux redux-logger react-redux```
+12) Import provider from react-redux to index.js
