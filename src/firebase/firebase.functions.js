@@ -7,6 +7,9 @@ provider.setCustomParameters({
 })
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithEmailAndPassword = async ({email, password}) =>{
+    return (await auth.signInWithEmailAndPassword(email, password))};
+export const signOut = () => auth.signOut();
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return;
