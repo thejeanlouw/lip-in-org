@@ -19,6 +19,8 @@ $alt-color: #4285f4;
     text-transform: uppercase;
     font-weight: bolder;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 
     &:hover{
         background-color:  $text-color;
@@ -32,6 +34,16 @@ $alt-color: #4285f4;
             background-color: $text-color;
             color: $alt-color;
             border-color: $alt-color;
+        }
+    }
+
+    &.inverted{
+        background-color:  $text-color;
+        color: $background-color;
+
+        &:hover{
+            background-color:  $background-color;
+            color: $text-color;
         }
     }
 }

@@ -10,7 +10,6 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 import { signOut } from "../../firebase/firebase.functions";
 
 const Header = ({currentUser, cartHidden}) => {
-    console.log('currentUser', currentUser)
     return(
         <div className='header'>
             <Link className='logo-link-container' to='/'>

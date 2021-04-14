@@ -18,7 +18,7 @@ class DonationPage extends React.Component{
             <div className='donation-page'>
             {
                 collections.map(({id, ...otherProps})=>(
-                    <div className='collection'>
+                    <div className='collection' key={id}>
                         <CollectionPreview key={id} {...otherProps} />
                     </div>
                 ))
