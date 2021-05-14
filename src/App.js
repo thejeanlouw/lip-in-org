@@ -43,7 +43,6 @@ class App extends Component {
 
   render(){
     return (
-      <HashRouter basename='/'>
         <div className="App">
           <Header />
           <Switch>
@@ -53,7 +52,6 @@ class App extends Component {
             <Route path='/' component={HomePage} />
           </Switch>
         </div>
-      </HashRouter>
       );
    }
 }

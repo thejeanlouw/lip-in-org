@@ -1,31 +1,18 @@
 import React from 'react';
-import LIP_IN_DATA from '../../data/raw-js/lip-in-data'
-import CollectionPreview from '../../components/collection-preview/collection-preview.component'
+import { Route } from 'react-router-dom'
 
-class DonationPage extends React.Component{
 
-    constructor(props){
-        super(props);
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
+import Collection from '../collection/collection.component';
 
-        this.state = {
-            collections: LIP_IN_DATA
-        }
-    }
-
-    render(){
-        const {collections} = this.state;
+const DonationPage = ({ match }) => {
+        console.log(match)
         return(
             <div className='donation-page'>
-            {
-                collections.map(({id, ...otherProps})=>(
-                    <div className='collection' key={id}>
-                        <CollectionPreview key={id} {...otherProps} />
-                    </div>
-                ))
-            }
+                <Route exact path={`${match.path}`}  component={CollectionsOverview} />
+                <Route path={`${match.path}/:collectionId`} component={Collection}/>
             </div>
         )
-    }
 }
 
 export default DonationPage;

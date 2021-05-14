@@ -1,4 +1,5 @@
-const LIP_IN_DATA = [
+const LIP_IN_DATA = {
+  church:  
     {
       id: 'CT1',
       title: 'Church',
@@ -123,7 +124,7 @@ const LIP_IN_DATA = [
         },
       ]
     },
-    {
+    organization: {
       id: 'CT2',
       title: 'Organizations',
       routeName: 'organization',
@@ -170,7 +171,7 @@ const LIP_IN_DATA = [
         }
       ]
     },
-    {
+    event: {
       id: 'CT3',
       title: 'Events',
       routeName: 'event',
@@ -178,7 +179,7 @@ const LIP_IN_DATA = [
         
       ]
     },
-    {
+    product: {
       id: 'CT4',
       title: 'Products',
       routeName: 'product',
@@ -186,7 +187,7 @@ const LIP_IN_DATA = [
         
       ]
     },
-    {
+    volunteer: {
       id: 'CT5',
       title: 'Volunteer',
       routeName: 'volunteer',
@@ -194,7 +195,7 @@ const LIP_IN_DATA = [
         
       ]
     },
-    {
+    individual: {
       id: 'CT6',
       title: 'Individuals',
       routeName: 'individual',
@@ -214,7 +215,7 @@ const LIP_IN_DATA = [
         }
       ]
     },
-    {
+    support: {
       id: 'CT7',
       title: 'Support',
       routeName: 'support',
@@ -260,6 +261,6 @@ const LIP_IN_DATA = [
         },
       ]
     }
-  ]
+}
 
   export default LIP_IN_DATA;
