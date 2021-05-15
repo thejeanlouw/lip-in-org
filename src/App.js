@@ -11,16 +11,19 @@ import Header from './components/header/header.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 
 import { auth } from './firebase/firebase.utils'
-import { createUserProfileDocument } from './firebase/firebase.functions'
+import { createUserProfileDocument, addCollectionAndDocuments } from './firebase/firebase.functions'
 import { setCurrentUser } from './redux/user/user-actions'
 import { selectCurrentUser } from './redux/user/user.selectors'
+
 import CheckoutPage from './pages/checkout/checkout.component';
+import { selectCollectionsForPreview } from './redux/donation/donation.selectors';
 
 class App extends Component {
 
   unsubscribeFromAuth = null;
 
   componentDidMount(){
+    const {setCurrentUser, collections} = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if(userAuth){
         const userRef = await createUserProfileDocument(userAuth);
@@ -33,7 +36,9 @@ class App extends Component {
           );
         })
       }
-      this.props.setCurrentUser(userAuth);
+      setCurrentUser(userAuth);
+      // addCollectionAndDocuments('collections', collections.map(({ title, items}) => ({title, items})));
+
     });
   }
 
@@ -57,6 +62,7 @@ class App extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
+  collections: selectCollectionsForPreview,
   currentUser: selectCurrentUser
 })
 

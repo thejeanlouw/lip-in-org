@@ -9,8 +9,10 @@ export const donationCollectionSelector = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
     [donationCollectionSelector],
-    collections => Object.keys(collections)
-                    .map( key => collections[key])
+    collections =>  collections ?
+                    Object.keys(collections)
+                    .map( key => collections[key]) :
+                    []
 )
 
 export const selectDonationCollection = collectionUrlParam =>

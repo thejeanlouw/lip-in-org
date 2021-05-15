@@ -7,7 +7,8 @@ import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selector
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
 import PayFastButton from '../../components/payfast-button/payfast-button.component'
 
-const CheckoutPage = ({cartItems, total}) => {
+const CheckoutPage = ({cartItems, total, match}) => {
+    console.log('checkout-match', match);
     return (
         <div className="checkout-page">
             <div className="checkout-header">

@@ -1,11 +1,17 @@
-import LIP_IN_DATA from "../../data/raw-js/lip-in-data";
+import DonationActionTypes from "./donation.types";
 
 const INITIAL_STATE = {
-    collections: LIP_IN_DATA
+    collections: null
 }
 
 const donationReducer = (state = INITIAL_STATE, action) => {
     switch(action.type){
+        case DonationActionTypes.UPDATE_COLLECTIONS:
+            return {
+                ...state,
+                collections: action.payload
+            }
+
         default:
             return state;
     }
