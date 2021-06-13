@@ -1,40 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom'
+import { createStructuredSelector } from 'reselect';
+
 
 
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
-import { convertCollectionsSnapshotToMap } from '../../firebase/firebase.functions';
-import { firestore } from '../../firebase/firebase.utils';
-import { updateDonationCollections } from '../../redux/donation/donation.actions';
+import WithSpinner from '../../components/with-spinner/with-spinner.component';
+import { fetchCollectionsStart } from '../../redux/donation/donation.actions';
+import { donationFetchingSelector, selectIsCollectionsLoaded } from '../../redux/donation/donation.selectors';
 import Collection from '../collection/collection.component';
+
+const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
+const CollectionPageWithSpinner = WithSpinner(Collection);
 
 class DonationPage extends Component {
 
-    unsubscribeFromSnapshot = null;
-
     componentDidMount(){
-        const collectionRef = firestore.collection('collections');
-        collectionRef.onSnapshot(async snapshot => {
-            debugger;
-            const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-            debugger;
-            this.props.updateDonationCollections(collectionsMap);
-        })
+        this.props.fetchCollectionsStart();
     }
 
     render(){
-        const {match} = this.props;
+        const {match, isFetching, isCollectionLoaded} = this.props;
+        debugger;
         return(
             <div className='donation-page'>
-                <Route exact path={`${match.path}`}  component={CollectionsOverview} />
-                <Route path={`${match.path}/:collectionId`} component={Collection}/>
+                <Route exact path={`${match.path}`}  render={(props)=><CollectionsOverviewWithSpinner isLoading={!isCollectionLoaded || isFetching} {...props} />} />
+                <Route path={`${match.path}/:collectionId`} render={(props)=><CollectionPageWithSpinner isLoading={!isCollectionLoaded || isFetching} {...props} />} />
             </div>
         )}
 }
 
 const mapDispatchToProps = dispatch => ({
-    updateDonationCollections: collectionMap => dispatch(updateDonationCollections(collectionMap))
+    fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
 })
 
-export default connect(null,mapDispatchToProps)(DonationPage);
+const mapStateToProps = createStructuredSelector({
+    isFetching: donationFetchingSelector,
+    isCollectionLoaded: selectIsCollectionsLoaded
+})
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(DonationPage);

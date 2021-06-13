@@ -7,6 +7,12 @@ export const donationCollectionSelector = createSelector(
     donations => donations.collections
 )
 
+
+export const donationFetchingSelector = createSelector(
+    [donationSelector],
+    donations => donations.isFetching
+)
+
 export const selectCollectionsForPreview = createSelector(
     [donationCollectionSelector],
     collections =>  collections ?
@@ -18,5 +24,10 @@ export const selectCollectionsForPreview = createSelector(
 export const selectDonationCollection = collectionUrlParam =>
 createSelector(
     [donationCollectionSelector],
-    collections => collections[collectionUrlParam]
+    collections => (collections ? collections[collectionUrlParam] : null)
+)
+
+export const selectIsCollectionsLoaded = createSelector(
+    [donationCollectionSelector],
+    collections => !!collections
 )

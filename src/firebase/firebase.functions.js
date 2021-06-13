@@ -1,12 +1,9 @@
-import firebase, {auth, firestore} from './firebase.utils'
+import firebase, {auth, firestore, googleProvider} from './firebase.utils'
 
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({
-    prompt: 'select_account'
-})
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 export const signInWithEmailAndPassword = async ({email, password}) =>{
     return (await auth.signInWithEmailAndPassword(email, password))};
 export const signOut = () => auth.signOut();
@@ -28,6 +25,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
                 createdAt: new Date(),
                 signedAgreements: false,
                 onboardedComplete: false,
+                subscription: 'free',
                 ...additionalData
             });
         } catch (error) {
